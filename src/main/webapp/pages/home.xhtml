@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<h:form id="demoForm" prependId="false">				
+				<p:pieChart id="pieChart" value="#{chartBean.pieModel}"
+					legendPosition="w" title="Interactive Pie Chart"
+					style="width:400px;height:300px">
+					<p:ajax event="itemSelect" listener="#{chartBean.itemSelect}"
+						update="errorMessages" />
+				</p:pieChart>
+				<p:barChart id="barChart" value="#{chartBean.categoryModel}"
+					legendPosition="ne" title="Interactive Bar Chart"
+					style="height:300px">
+					<p:ajax event="itemSelect" listener="#{chartBean.itemSelect}"
+						update="errorMessages" />
+				</p:barChart>
+				<p:growl id="errorMessages" showDetail="true"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
