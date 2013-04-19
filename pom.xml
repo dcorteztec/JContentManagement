@@ -12,6 +12,8 @@
 		<project.build.directory>/home/phoenix/dev/source/JContentManagement/JContentManagement/target/</project.build.directory>
 		<project.build.finalName>JContentManagement</project.build.finalName>
 		<project.packaging>war</project.packaging>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jsf.version>2.1.2</jsf.version>
 	</properties>
 
 	<repositories>
@@ -27,20 +29,48 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.4</version>
+			<version>3.5</version>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.faces</groupId> -->
+<!-- 			<artifactId>javax.faces-api</artifactId> -->
+<!-- 			<version>2.1</version> -->
+<!-- 		</dependency> -->
 		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>javax.faces-api</artifactId>
-			<version>2.1</version>
-		</dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.0</version>
 			<scope>test</scope>
 		</dependency>
+	 <!-- JAR JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.0.Final</version>
+	    </dependency> 
+	    <dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
 	</dependencies>
+	
 	<build>
         <finalName>JContentManagement</finalName>
     </build>
