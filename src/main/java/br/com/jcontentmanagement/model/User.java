@@ -1,10 +1,17 @@
 package br.com.jcontentmanagement.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "User", schema = "jContent")
 public class User {
 
+	
 	private Integer id;
 	private String email;
 	private String password;
@@ -12,6 +19,10 @@ public class User {
 	private String groups;
 	private String activation_key;
 	private String extras;
+	
+	@Id
+	@SequenceGenerator(name = "SEQ_USER", sequenceName = "jContent.sq01_user", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER")
 	public Integer getId() {
 		return id;
 	}
